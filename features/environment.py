@@ -30,6 +30,9 @@ def after_scenario(context, scenario):
         if hasattr(context, "evidence_path"):
             screenshot_path = f"{context.evidence_path}/{scenario.name}.png"
         else:
+            # check for a screenshots folder and create one if none exist
+            if not os.path.exists('screenshots'):
+                os.makedirs('screenshots')
             screenshot_path = f"screenshots/{scenario.name}.png"
         context.driver.save_screenshot(screenshot_path)
     # quit the driver
