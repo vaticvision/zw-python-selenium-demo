@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "zw-python-selenium-demo"
+version = "0.1.0"
+description = ""
+authors = ["Zachary White"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+behave = "^1.2.6"
+behavex = "^1.5.11"
+selenium = "^4.4.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
