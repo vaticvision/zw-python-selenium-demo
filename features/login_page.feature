@@ -11,7 +11,7 @@ Feature: Login page
     When I enter my username
     And I enter the password "ThisIsABadPassword1"
     And I click the Log In button
-    Then an error appears that includes text "We didn't recognize that email and/or passwordzzz."
+    Then an error appears that includes text "We didn't recognize that email and/or password."
   
   Scenario: Navigate to password reset using Help link
     When I click the help link
