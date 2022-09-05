@@ -11,7 +11,6 @@ class LoginPage:
     TEXT_ERROR = "[data-qa-id='error-display']"
     ERROR_HELP = "[data-qa-id='error-display'] a"
     LINK_HELP = "[data-qa-id='need-help-link']"
-
     BUTTON_PW_RESET = "[data-qa-id='password-reset-submit-btn']"
 
     def __init__(self, driver):
