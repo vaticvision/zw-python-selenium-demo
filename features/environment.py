@@ -26,12 +26,11 @@ def after_scenario(context, scenario):
 
     # take a screenshot if our test fails
     if scenario.status == "failed":
-        # behavex automatically sets context.evidence path. If we're not using behavex this can cause an error
+        # behavex automatically sets context.evidence_path. If we're not using behavex this can cause an error
         if hasattr(context, "evidence_path"):
             screenshot_path = f"{context.evidence_path}/{scenario.name}.png"
         else:
-            screenshot_path = f"/screenshots/{scenario.name}.png"
+            screenshot_path = f"screenshots/{scenario.name}.png"
         context.driver.save_screenshot(screenshot_path)
     # quit the driver
     context.driver.quit()
-
