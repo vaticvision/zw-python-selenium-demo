@@ -51,11 +51,11 @@ To run a specific test, tag the test by adding @(tag) directly above the scenari
 
 > behave -k -t "@now"
 
-If a failure occurs (which you can cause by tinkering with the feature file, ex: changing the expected error text in Scenario: Unable to log in with bad password) a screenshot of the failure will be saved in /zw-python-selenium-demo/screenshot
+If a failure occurs (which you can cause by tinkering with the feature file, ex: changing the expected error text in Scenario: Unable to log in with bad password) a screenshot folder will be created and a screenshot of the failure will be saved in /zw-python-selenium-demo/screenshots
 
 Running tests in parallel. This is where the behavex package comes in. Behavex is a wrapper over behave that allows us to easily run tests in parallel. From the root of the project run:
 
 > behavex --parallel-processes 5 --parallel-scheme scenario
 
-After the behavex run, a html report is created. To view it, open /zw-python-selenium-demo/output/report.html
+After the behavex run, and output folder including a html report is created. To view it, open /zw-python-selenium-demo/output/report.html
 If a failure occurred during  the run, you can view the failure screenshot on the html report by clicking the "additional evidence" button in the evidence row for the failed test 
