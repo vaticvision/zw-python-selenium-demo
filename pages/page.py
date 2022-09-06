@@ -5,9 +5,11 @@ from selenium.common.exceptions import TimeoutException
 
 
 class Page:
+    
     def __init__(self, driver):
         self.driver = driver
         self.timeout = 5
+        
     def does_url_equal(self, url):
         try:
             WebDriverWait(self.driver, self.timeout).until(EC.url_to_be(url))
