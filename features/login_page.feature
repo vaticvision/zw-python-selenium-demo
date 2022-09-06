@@ -12,7 +12,7 @@ Feature: Login page
     And I enter the password "ThisIsABadPassword1"
     And I click the Log In button
     Then an error appears that includes text "We didn't recognize that email and/or password."
-  
+
   Scenario: Navigate to password reset using Help link
     When I click the help link
     Then I am taken to the forgot password form
@@ -29,4 +29,3 @@ Feature: Login page
     And I enter my password
     And I click the Log In button
     Then an alert does not appear
-

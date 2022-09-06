@@ -38,10 +38,11 @@ DEMO_BASE_URL=https://www.hudl.com
 
 Alternatively, if you would like to not have to set environment variables, you can enter the needed information under the before_all function in /zw-python-selenium-demo/features/environment.py
 
+Webdriver:
+This demo assuems that you have chromedirver and that you have the location of your chromedriver set in your system path.
 
 
 ## Running tests:
-
 Run all tests outlined in /zw-python-selenium-demo/features/*.feature sequentially. From the root of the project, run:
 
 > behave

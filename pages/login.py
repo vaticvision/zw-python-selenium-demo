@@ -2,9 +2,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+from pages.page import Page
 
 
-class LoginPage:
+class LoginPage(Page):
     USERNAME = "[data-qa-id='email-input']"
     PASSWORD = "[data-qa-id='password-input']"
     BTN_LOGIN = "[data-qa-id='login-btn']"
@@ -15,34 +16,25 @@ class LoginPage:
 
     def __init__(self, driver):
         self.driver = driver
+        super().__init__(self.driver)
 
     def enter_username(self, username):
-        el = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, self.USERNAME)))
-        el.send_keys(username)
+        Page.enter_text(self, self.USERNAME, username)
 
     def enter_password(self, password):
-        el = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, self.PASSWORD)))
-        el.send_keys(password)
+        Page.enter_text(self, self.PASSWORD, password)
 
     def click_log_in(self):
-        el = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, self.BTN_LOGIN)))
-        el.click()
+        Page.click_element(self, self.BTN_LOGIN)
 
     def get_error_text(self):
-        el = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, self.TEXT_ERROR)))
-        return el.text
+        return Page.get_text(self, self.TEXT_ERROR)
 
     def click_help_link(self):
-        el = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, self.LINK_HELP)))
-        el.click()
+        Page.click_element(self, self.LINK_HELP)
 
     def click_help_link_error(self):
-        el = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, self.ERROR_HELP)))
-        el.click()
+        Page.click_element(self, self.ERROR_HELP)
 
     def password_reset_button_appears(self):
-        try:
-            WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, self.BUTTON_PW_RESET)))
-            return True
-        except TimeoutException:
-            return False
+        return Page.does_element_appear(self, self.BUTTON_PW_RESET)
